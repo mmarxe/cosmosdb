@@ -6,4 +6,5 @@ namespace Macsakini\CosmosDB;
 class Query{
 
     
+
 }

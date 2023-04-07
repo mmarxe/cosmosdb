@@ -11,20 +11,46 @@ class Collections
         $this->host = $host;
         $this->private_key = $private_key;
     }
-    public function getCollections()
+    public function selectCollections()
     {
+        $headers = new Query\HeaderBuilder(
+            "sjsjs",
+            "jsksk"
+        );
+        $headers->build();
 
+        $body = "{id}";
     }
     public function createCollections()
     {
+        $headers = new Query\HeaderBuilder(
+            "sjsjs",
+            "jsksk"
+        );
+        $headers->build();
+
+        $body = "{id}";
 
     }
     public function listCollections()
     {
+        $headers = new Query\HeaderBuilder(
+            "sjsjs",
+            "jsksk"
+        );
+        $headers->build();
+
+        $body = "{id}";
 
     }
     public function deleteCollections()
     {
+        $headers = new Query\HeaderBuilder(
+            "sjsjs",
+            "jsksk"
+        );
+        $headers->build();
 
+        $body = "{id}";
     }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Macsakini\CosmosDB;
+namespace Macsakini\CosmosDB\Authorization;
 
 class Auth
 {
@@ -43,6 +43,3 @@ class Auth
         return $date_utc->format(\DateTime::RFC7231);
     }
 }
-
-$test = new Auth("hsjs", "hsjsj", "jsjs", "jsjsj", "hssjsks", "master");
-echo $test->auth();

@@ -3,8 +3,9 @@
 namespace Macsakini\CosmosDB;
 
 
-class Query{
+class Query
+{
 
-    
+
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Macsakini\CosmosDB;
+namespace Macsakini\CosmosDB\Authorization;
 
 class ResourceLinkBuilder
 {

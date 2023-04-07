@@ -13,8 +13,16 @@ class CosmosDB{
         $this->host = $host;
         $this->private_key = $private_key;
     }
-
     public function selectDB(){
+
+    }
+    public function createDB(){
+
+    }
+    public function listDB(){
+
+    }
+    public function deleteDB(){
 
     }
 }

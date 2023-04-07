@@ -15,7 +15,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Mac\\CosmosDb\\": "src/"
+            "Macsakini\\CosmosDb\\": "src/"
         }
     },
     "authors": [

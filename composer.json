@@ -4,7 +4,12 @@
     "type": "library",
     "keywords"   : ["azure cosmosdb", "cosmosdb", "azure documentdb", "documentdb", "cosmosdb rest", "cosmosdb sql api rest", "azure", "rest"],
     "homepage"   : "https://github.com/macsakini/cosmosdb",
+    "support": {
+        "source": "https://github.com/macsakini/CosmosDB",
+        "issues": "https://github.com/macsakini/CosmosDB/issues"
+      },
     "require": {
+        "php": ">=8.0",
         "guzzlehttp/psr7": "^2.4"
     },
     "license": "MIT",

@@ -1,10 +1,11 @@
 {
     "name": "cosmosdb/cosmosdb",
-    "description": "php-wrapper for CosmosDB REST API",
+    "description": "PHP-Wrapper for Azure CosmosDB REST API",
     "type": "library",
     "require": {
         "guzzlehttp/psr7": "^2.4"
     },
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Mac\\CosmosDb\\": "src/"
@@ -12,7 +13,7 @@
     },
     "authors": [
         {
-            "name": "macsakini",
+            "name": "Mac Maxwell",
             "email": "macsakini@hotmail.com"
         }
     ]

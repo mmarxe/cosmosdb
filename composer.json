@@ -1,0 +1,19 @@
+{
+    "name": "mac/cosmos-db",
+    "description": "php-wrapper for CosmosDB REST API",
+    "type": "library",
+    "require": {
+        "guzzlehttp/psr7": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mac\\CosmosDb\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "macsakini",
+            "email": "macsakini@hotmail.com"
+        }
+    ]
+}

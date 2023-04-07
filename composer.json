@@ -1,5 +1,5 @@
 {
-    "name": "mac/cosmos-db",
+    "name": "cosmos/cosmos-db",
     "description": "php-wrapper for CosmosDB REST API",
     "type": "library",
     "require": {

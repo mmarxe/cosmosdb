@@ -16,7 +16,8 @@ class CosmosDB
     public function selectDB()
     {
         $headers = new Query\HeaderBuilder(
-            "sjsjs", "jsksk"
+            "sjsjs",
+            "jsksk"
         );
         $headers->build();
 
@@ -25,7 +26,8 @@ class CosmosDB
     public function createDB()
     {
         $headers = new Query\HeaderBuilder(
-            "sjsjs", "jsksk"
+            "sjsjs",
+            "jsksk"
         );
         $headers->build();
 
@@ -35,7 +37,8 @@ class CosmosDB
     public function listDB()
     {
         $headers = new Query\HeaderBuilder(
-            "sjsjs", "jsksk"
+            "sjsjs",
+            "jsksk"
         );
         $headers->build();
 
@@ -45,7 +48,8 @@ class CosmosDB
     public function deleteDB()
     {
         $headers = new Query\HeaderBuilder(
-            "sjsjs", "jsksk"
+            "sjsjs",
+            "jsksk"
         );
         $headers->build();
 

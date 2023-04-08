@@ -2,39 +2,21 @@
 
 namespace Macsakini\CosmosDB\Authorization;
 
-enum Token
+enum Token: string
 {
-    case MASTER;
-    case AAD;
-    case RESOURCE;
-
-    public function token(): string
-    {
-        return match ($this) {
-            Token::MASTER => 'master',
-            Token::AAD => 'aad',
-            Token::RESOURCE => 'resource',
-        };
-    }
+    Case MASTER = 'master';
+    Case AAD = 'aad';
+    Case RESOURCE = 'resource';
 }
 
 
-enum Verb
+enum Verb : string
 {
-    case GET;
-    case POST;
-    case PUT;
-    case PATCH;
-    case DELETE;
+    Case GET = 'get';
+    Case POST = 'post';
+    Case PUT = 'put';
+    Case PATCH = 'patch';
+    Case DELETE = 'delete';
 
-    public function verb(): string
-    {
-        return match ($this) {
-            Verb::GET => 'get',
-            Verb::POST => 'post',
-            Verb::PUT => 'put',
-            Verb::PATCH => 'patch',
-            Verb::DELETE => 'delete',
-        };
-    }
+   
 }

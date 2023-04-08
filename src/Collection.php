@@ -12,12 +12,12 @@ use Macsakini\CosmosDB\Query\HeaderBuilder;
 
 class Collection implements CosmosInterface
 {
-    private string $host;
-    private string $private_key;
-    private string $dbid;
-    private string $dbrtype = ResourceType::DBS->rtype();
-    private string $rtype = ResourceType::COLLS->rtype();
-    private string $token = Token::MASTER->token();
+    public string $host;
+    public string $private_key;
+    public string $dbid;
+    public $dbrtype = ResourceType::DBS;
+    public $rtype = ResourceType::COLLS;
+    public $token = Token::MASTER;
     public function __construct(string $host, string $private_key, string $dbid)
     {
         $this->host = $host;
@@ -45,7 +45,7 @@ class Collection implements CosmosInterface
 
     public function get(string $containerid)
     {
-        $verb = Verb::GET->verb();
+        $verb = Verb::GET->value;
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
@@ -55,9 +55,12 @@ class Collection implements CosmosInterface
         $resourcelink->build();
 
         $auth = $this->auth(
-            $this->host, $this->private_key,
-            $verb, $this->rtype,
-            $resourcelink, $this->token
+            $this->host,
+            $this->private_key,
+            $verb,
+            $this->rtype,
+            $resourcelink,
+            $this->token
         );
 
         $headers = new HeaderBuilder($auth, "JSON");
@@ -73,7 +76,7 @@ class Collection implements CosmosInterface
     }
     public function create()
     {
-        $verb = Verb::POST->verb();
+        $verb = Verb::POST->value;
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
@@ -81,9 +84,12 @@ class Collection implements CosmosInterface
         $resourcelink->build();
 
         $auth = $this->auth(
-            $this->host, $this->private_key,
-            $verb, $this->rtype,
-            $resourcelink, $this->token
+            $this->host,
+            $this->private_key,
+            $verb,
+            $this->rtype,
+            $resourcelink,
+            $this->token
         );
 
         $headers = new HeaderBuilder($auth, "JSON");
@@ -96,11 +102,10 @@ class Collection implements CosmosInterface
             $verb
         );
         $execute->call();
-
     }
     public function list()
     {
-        $verb = Verb::GET->verb();
+        $verb = Verb::GET->value;
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
@@ -108,9 +113,12 @@ class Collection implements CosmosInterface
         $resourcelink->build();
 
         $auth = $this->auth(
-            $this->host, $this->private_key,
-            $verb, $this->rtype,
-            $resourcelink, $this->token
+            $this->host,
+            $this->private_key,
+            $verb,
+            $this->rtype,
+            $resourcelink,
+            $this->token
         );
 
         $headers = new HeaderBuilder($auth, "JSON");
@@ -123,11 +131,10 @@ class Collection implements CosmosInterface
             $verb
         );
         $execute->call();
-
     }
     public function delete(string $containerid)
     {
-        $verb = Verb::DELETE->verb();
+        $verb = Verb::DELETE->value;
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
@@ -137,9 +144,12 @@ class Collection implements CosmosInterface
         $resourcelink->build();
 
         $auth = $this->auth(
-            $this->host, $this->private_key,
-            $verb, $this->rtype,
-            $resourcelink, $this->token
+            $this->host,
+            $this->private_key,
+            $verb,
+            $this->rtype,
+            $resourcelink,
+            $this->token
         );
 
         $headers = new HeaderBuilder($auth, "JSON");

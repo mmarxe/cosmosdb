@@ -2,28 +2,14 @@
 
 namespace Macsakini\CosmosDB\Authorization;
 
-enum ResourceType
+enum ResourceType : string
 {
-    case DBS;
-    case COLLS;
-    case SPROCS;
-    case UDFS;
-    case TRIGGERS;
-    case USERS;
-    case PERMISSIONS;
-    case DOCS;
-
-    public function rtype(): string
-    {
-        return match ($this) {
-            ResourceType::DBS => 'dbs',
-            ResourceType::COLLS => 'colls',
-            ResourceType::SPROCS => 'sprocs',
-            ResourceType::UDFS => 'udfs',
-            ResourceType::TRIGGERS => 'triggers',
-            ResourceType::USERS => 'users',
-            ResourceType::PERMISSIONS => 'permissions',
-            ResourceType::DOCS => 'docs',
-        };
-    }
+    Case DBS = 'dbs';
+    Case COLLS = 'colls';
+    Case SPROCS = 'sprocs';
+    Case UDFS = 'udfs';
+    Case TRIGGERS = 'triggers';
+    Case USERS = 'users';
+    Case PERMISSIONS = 'permissions';
+    Case DOCS = 'docs';
 }

@@ -3,7 +3,7 @@
         'name' => 'cosmosdb/cosmosdb',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '04a9f947995faf91f88b5dfaa053a5e8e44daa78',
+        'reference' => 'bd05218703d4f8dec30c5e75972be37110994695',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'cosmosdb/cosmosdb' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '04a9f947995faf91f88b5dfaa053a5e8e44daa78',
+            'reference' => 'bd05218703d4f8dec30c5e75972be37110994695',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

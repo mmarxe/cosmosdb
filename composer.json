@@ -15,8 +15,11 @@
     },
     "license": "MIT",
     "autoload": {
+        "classmap": [
+            "src/"
+        ],
         "psr-4": {
-            "Macsakini\\CosmosDb\\": "src/"
+            
         }
     },
     "authors": [

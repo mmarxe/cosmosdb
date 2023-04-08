@@ -22,10 +22,6 @@ class ComposerStaticInit9ecf8ed1c1252b7a4ccf7d20042ad191
             'Psr\\Http\\Client\\' => 16,
             'PhpParser\\' => 10,
         ),
-        'M' => 
-        array (
-            'Macsakini\\CosmosDb\\' => 19,
-        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -52,10 +48,6 @@ class ComposerStaticInit9ecf8ed1c1252b7a4ccf7d20042ad191
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'Macsakini\\CosmosDb\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -76,6 +68,21 @@ class ComposerStaticInit9ecf8ed1c1252b7a4ccf7d20042ad191
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Macsakini\\CosmosDB\\Authorization\\Auth' => __DIR__ . '/../..' . '/src/Auth/Auth.php',
+        'Macsakini\\CosmosDB\\Authorization\\ResourceLink' => __DIR__ . '/../..' . '/src/Auth/ResourceLink.php',
+        'Macsakini\\CosmosDB\\Authorization\\ResourceLinkBuilder' => __DIR__ . '/../..' . '/src/Auth/ResourceLinkBuilder.php',
+        'Macsakini\\CosmosDB\\Authorization\\ResourceType' => __DIR__ . '/../..' . '/src/Auth/ResourceType.php',
+        'Macsakini\\CosmosDB\\Authorization\\Token' => __DIR__ . '/../..' . '/src/Auth/Essentials.php',
+        'Macsakini\\CosmosDB\\Authorization\\Verb' => __DIR__ . '/../..' . '/src/Auth/Essentials.php',
+        'Macsakini\\CosmosDB\\Collection' => __DIR__ . '/../..' . '/src/Collection.php',
+        'Macsakini\\CosmosDB\\CosmosInterface' => __DIR__ . '/../..' . '/src/CosmosInterface.php',
+        'Macsakini\\CosmosDB\\Database' => __DIR__ . '/../..' . '/src/Database.php',
+        'Macsakini\\CosmosDB\\Document' => __DIR__ . '/../..' . '/src/Document.php',
+        'Macsakini\\CosmosDB\\Guzzle\\GuzzleRequest' => __DIR__ . '/../..' . '/src/Guzzle/Request.php',
+        'Macsakini\\CosmosDB\\Query\\Header' => __DIR__ . '/../..' . '/src/Query/Header.php',
+        'Macsakini\\CosmosDB\\Query\\HeaderBuilder' => __DIR__ . '/../..' . '/src/Query/HeaderBuilder.php',
+        'Macsakini\\CosmosDB\\Query\\Query' => __DIR__ . '/../..' . '/src/Query/Query.php',
+        'Macsakini\\CosmosDB\\Query\\QueryBuilder' => __DIR__ . '/../..' . '/src/Query/QueryBuilder.php',
         'PHPUnit\\Event\\Application\\Finished' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/Finished.php',
         'PHPUnit\\Event\\Application\\FinishedSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/FinishedSubscriber.php',
         'PHPUnit\\Event\\Application\\Started' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/Started.php',

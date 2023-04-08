@@ -30,7 +30,7 @@ class CosmosDB implements CosmosInterface
         $resourcelink,
         $token
     ) {
-        return new Auth(
+        $auth = new Auth(
             $host,
             $private_key,
             $verb,
@@ -38,13 +38,13 @@ class CosmosDB implements CosmosInterface
             $resourcelink,
             $token
         );
+        return $auth->auth();
     }
     public function create()
     {
         $verb = Verb::POST->verb();
 
         $resourcelink = new ResourceLinkBuilder();
-        $resourcelink->setResourceTypeDB();
         $resourcelink->build();
 
         $auth = $this->auth(
@@ -63,7 +63,6 @@ class CosmosDB implements CosmosInterface
         $verb = Verb::GET->verb();
 
         $resourcelink = new ResourceLinkBuilder();
-        $resourcelink->setResourceTypeDB();
         $resourcelink->build();
 
         $auth = $this->auth(

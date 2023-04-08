@@ -27,7 +27,7 @@ class Documents implements CosmosInterface
         $resourcelink,
         $token
     ) {
-        return new Auth(
+        $auth = new Auth(
             $host,
             $private_key,
             $verb,
@@ -35,6 +35,7 @@ class Documents implements CosmosInterface
             $resourcelink,
             $token
         );
+        return $auth->auth();
     }
     public function create()
     {
@@ -43,7 +44,6 @@ class Documents implements CosmosInterface
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
         $resourcelink->setResourceTypeContainer();
-        $resourcelink->setResourceTypeDocument();
         $resourcelink->build();
 
         $auth = $this->auth(
@@ -64,7 +64,6 @@ class Documents implements CosmosInterface
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
         $resourcelink->setResourceTypeContainer();
-        $resourcelink->setResourceTypeDocument();
         $resourcelink->build();
 
         $auth = $this->auth(

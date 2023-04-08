@@ -29,7 +29,7 @@ class Collections implements CosmosInterface
         $resourcelink,
         $token
     ) {
-        return new Auth(
+        $auth = new Auth(
             $host,
             $private_key,
             $verb,
@@ -37,9 +37,10 @@ class Collections implements CosmosInterface
             $resourcelink,
             $token
         );
+        return $auth->auth();
     }
 
-    public function get()
+    public function get(string $dbid)
     {
         $verb = Verb::GET->verb();
 
@@ -64,7 +65,6 @@ class Collections implements CosmosInterface
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
-        $resourcelink->setResourceTypeContainer();
         $resourcelink->build();
 
         $auth = $this->auth(
@@ -84,7 +84,6 @@ class Collections implements CosmosInterface
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
-        $resourcelink->setResourceTypeContainer();
         $resourcelink->build();
 
         $auth = $this->auth(
@@ -98,7 +97,7 @@ class Collections implements CosmosInterface
         $headers->build();
 
     }
-    public function delete()
+    public function delete(string $dbid)
     {
         $verb = Verb::DELETE->verb();
 

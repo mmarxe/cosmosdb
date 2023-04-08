@@ -3,8 +3,7 @@
 This is a wrapper around the REST API to make it simpler to utilize Azure Cosmos DB from your php services such as Wordpress or Laravel.
 
 Wrapper for Azure Cosmos DB.
-
-https://docs.microsoft.com/pt-pt/rest/api/cosmos-db/common-tasks-using-the-cosmosdb-rest-api
+https://learn.microsoft.com/en-us/rest/api/cosmos-db/
 
 # Installation
 

@@ -2,7 +2,7 @@
 
 This is a wrapper around the REST API to make it simpler to utilize Azure Cosmos DB from your php services such as Wordpress or Laravel.
 
-wrapper for Azure Cosmos DB
+Wrapper for Azure Cosmos DB.
 
 https://docs.microsoft.com/pt-pt/rest/api/cosmos-db/common-tasks-using-the-cosmosdb-rest-api
 
@@ -22,7 +22,6 @@ or by running
 
 ```
 composer require cosmosdb/cosmosdb
-
 ```
 
 at the root of your project.

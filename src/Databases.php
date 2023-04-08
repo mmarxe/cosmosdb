@@ -10,7 +10,7 @@ use Macsakini\CosmosDB\Authorization\Auth;
 use Macsakini\CosmosDB\Query\HeaderBuilder;
 
 
-class CosmosDB implements CosmosInterface
+class Databases implements CosmosInterface
 {
     private string $host;
     private string $private_key;
@@ -82,6 +82,7 @@ class CosmosDB implements CosmosInterface
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
+        $resourcelink->setDatabase($dbid);
         $resourcelink->build();
 
         $auth = $this->auth(
@@ -101,6 +102,7 @@ class CosmosDB implements CosmosInterface
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
+        $resourcelink->setDatabase($dbid);
         $resourcelink->build();
 
         $auth = $this->auth(

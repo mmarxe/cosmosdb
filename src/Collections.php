@@ -13,13 +13,15 @@ class Collections implements CosmosInterface
 {
     private string $host;
     private string $private_key;
+    private string $dbid;
     private string $dbrtype = ResourceType::DBS->rtype();
     private string $rtype = ResourceType::COLLS->rtype();
     private string $token = Token::MASTER->token();
-    public function __construct(string $host, string $private_key)
+    public function __construct(string $host, string $private_key, string $dbid)
     {
         $this->host = $host;
         $this->private_key = $private_key;
+        $this->dbid = $dbid;
     }
     public function auth(
         $host,
@@ -40,13 +42,15 @@ class Collections implements CosmosInterface
         return $auth->auth();
     }
 
-    public function get(string $dbid)
+    public function get(string $containerid)
     {
         $verb = Verb::GET->verb();
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
+        $resourcelink->setDatabase($this->dbid);
         $resourcelink->setResourceTypeContainer();
+        $resourcelink->setContainer($containerid);
         $resourcelink->build();
 
         $auth = $this->auth(
@@ -65,6 +69,7 @@ class Collections implements CosmosInterface
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
+        $resourcelink->setDatabase($this->dbid);
         $resourcelink->build();
 
         $auth = $this->auth(
@@ -84,6 +89,7 @@ class Collections implements CosmosInterface
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
+        $resourcelink->setDatabase($this->dbid);
         $resourcelink->build();
 
         $auth = $this->auth(
@@ -97,13 +103,15 @@ class Collections implements CosmosInterface
         $headers->build();
 
     }
-    public function delete(string $dbid)
+    public function delete(string $containerid)
     {
         $verb = Verb::DELETE->verb();
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
+        $resourcelink->setDatabase($this->dbid);
         $resourcelink->setResourceTypeContainer();
+        $resourcelink->setContainer($containerid);
         $resourcelink->build();
 
         $auth = $this->auth(

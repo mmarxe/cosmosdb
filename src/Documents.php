@@ -11,13 +11,17 @@ class Documents implements CosmosInterface
 {
     private string $host;
     private string $private_key;
+    private string $dbid;
+    private string $containerid;
     private string $rtype = ResourceType::DOCS->rtype();
     private string $token = Token::MASTER->token();
 
-    public function __construct(string $host, string $private_key)
+    public function __construct(string $host, string $private_key, string $dbid, string $containerid)
     {
         $this->host = $host;
         $this->private_key = $private_key;
+        $this->dbid = $dbid;
+        $this->containerid = $containerid;
     }
     public function auth(
         $host,
@@ -43,7 +47,9 @@ class Documents implements CosmosInterface
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
+        $resourcelink->setDatabase($this->dbid);
         $resourcelink->setResourceTypeContainer();
+        $resourcelink->setContainer($this->containerid);
         $resourcelink->build();
 
         $auth = $this->auth(
@@ -63,7 +69,9 @@ class Documents implements CosmosInterface
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
+        $resourcelink->setDatabase($this->dbid);
         $resourcelink->setResourceTypeContainer();
+        $resourcelink->setContainer($this->containerid);
         $resourcelink->build();
 
         $auth = $this->auth(
@@ -77,14 +85,17 @@ class Documents implements CosmosInterface
         $headers->build();
     }
 
-    public function get(string $dbid)
+    public function get(string $docid)
     {
         $verb = Verb::GET->verb();
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
+        $resourcelink->setDatabase($this->dbid);
         $resourcelink->setResourceTypeContainer();
+        $resourcelink->setContainer($this->containerid);
         $resourcelink->setResourceTypeDocument();
+        $resourcelink->setDocument($docid);
         $resourcelink->build();
 
         $auth = $this->auth(
@@ -98,14 +109,17 @@ class Documents implements CosmosInterface
         $headers->build();
 
     }
-    public function delete(string $dbid)
+    public function delete(string $docid)
     {
         $verb = Verb::DELETE->verb();
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
+        $resourcelink->setDatabase($this->dbid);
         $resourcelink->setResourceTypeContainer();
+        $resourcelink->setContainer($this->containerid);
         $resourcelink->setResourceTypeDocument();
+        $resourcelink->setDocument($docid);
         $resourcelink->build();
 
         $auth = $this->auth(

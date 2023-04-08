@@ -30,7 +30,7 @@ class Auth
 
     public function signature()
     {
-        $rfc7231_date = $this->UTCDateTime();
+        $rfc7231_date = strtolower($this->UTCDateTime());
         $payload = "{$this->verb}\n{$this->resourcetype}\n{$this->resourcelink}\n{$rfc7231_date}\n\n";
         $key_decode = base64_decode($this->private_key);
         $hmac256 = hash_hmac("sha256", $payload, $key_decode);

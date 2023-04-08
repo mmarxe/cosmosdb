@@ -24,5 +24,8 @@
             "name": "Mac Maxwell",
             "email": "macsakini@hotmail.com"
         }
-    ]
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    }
 }

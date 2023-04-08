@@ -13,7 +13,7 @@ Include cosmosdb/cosmosdb in your project, by adding it to your composer.json fi
 ```
 {
     "require": {
-        "cosmosdb/cosmosdb": "2.*"
+        "cosmosdb/cosmosdb": "1.*"
     }
 }
 ```

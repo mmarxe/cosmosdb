@@ -21,8 +21,14 @@ class Collections implements CosmosInterface
         $this->host = $host;
         $this->private_key = $private_key;
     }
-    public function auth($host, $private_key, $verb, $rtype, $resourcelink, $token)
-    {
+    public function auth(
+        $host,
+        $private_key,
+        $verb,
+        $rtype,
+        $resourcelink,
+        $token
+    ) {
         return new Auth(
             $host,
             $private_key,
@@ -35,12 +41,18 @@ class Collections implements CosmosInterface
 
     public function get()
     {
-        $verb = Verb::GET;
+        $verb = Verb::GET->verb();
 
         $resourcelink = new ResourceLinkBuilder();
+        $resourcelink->setResourceTypeDB();
+        $resourcelink->setResourceTypeContainer();
         $resourcelink->build();
 
-        $auth = $this->auth($this->host, $this->private_key, $verb, $this->rtype, $resourcelink, $this->token);
+        $auth = $this->auth(
+            $this->host, $this->private_key,
+            $verb, $this->rtype,
+            $resourcelink, $this->token
+        );
 
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
@@ -48,12 +60,18 @@ class Collections implements CosmosInterface
     }
     public function create()
     {
-        $verb = Verb::POST;
+        $verb = Verb::POST->verb();
 
         $resourcelink = new ResourceLinkBuilder();
+        $resourcelink->setResourceTypeDB();
+        $resourcelink->setResourceTypeContainer();
         $resourcelink->build();
 
-        $auth = $this->auth($this->host, $this->private_key, $verb, $this->rtype, $resourcelink, $this->token);
+        $auth = $this->auth(
+            $this->host, $this->private_key,
+            $verb, $this->rtype,
+            $resourcelink, $this->token
+        );
 
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
@@ -62,12 +80,18 @@ class Collections implements CosmosInterface
     }
     public function list()
     {
-        $verb = Verb::GET;
+        $verb = Verb::GET->verb();
 
         $resourcelink = new ResourceLinkBuilder();
+        $resourcelink->setResourceTypeDB();
+        $resourcelink->setResourceTypeContainer();
         $resourcelink->build();
 
-        $auth = $this->auth($this->host, $this->private_key, $verb, $this->rtype, $resourcelink, $this->token);
+        $auth = $this->auth(
+            $this->host, $this->private_key,
+            $verb, $this->rtype,
+            $resourcelink, $this->token
+        );
 
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
@@ -76,12 +100,18 @@ class Collections implements CosmosInterface
     }
     public function delete()
     {
-        $verb = Verb::DELETE;
+        $verb = Verb::DELETE->verb();
 
         $resourcelink = new ResourceLinkBuilder();
+        $resourcelink->setResourceTypeDB();
+        $resourcelink->setResourceTypeContainer();
         $resourcelink->build();
 
-        $auth = $this->auth($this->host, $this->private_key, $verb, $this->rtype, $resourcelink, $this->token);
+        $auth = $this->auth(
+            $this->host, $this->private_key,
+            $verb, $this->rtype,
+            $resourcelink, $this->token
+        );
 
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);

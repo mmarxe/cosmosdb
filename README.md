@@ -1,8 +1,8 @@
-# PHP-Wrapper for Azure Cosmos DB
+# Wrapper for Azure Cosmos DB
 
 This is a wrapper around the REST API to make it simpler to utilize Azure Cosmos DB from your php services such as Wordpress or Laravel.
 
-PHP wrapper for Azure Cosmos DB
+wrapper for Azure Cosmos DB
 
 https://docs.microsoft.com/pt-pt/rest/api/cosmos-db/common-tasks-using-the-cosmosdb-rest-api
 

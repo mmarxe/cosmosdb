@@ -1,6 +1,6 @@
 {
     "name": "cosmosdb/cosmosdb",
-    "description": "PHP-Wrapper for Azure CosmosDB REST API",
+    "description": "Wrapper for Azure CosmosDB REST API",
     "type": "library",
     "keywords"   : ["azure cosmosdb", "cosmosdb", "azure documentdb", "documentdb", "cosmosdb rest", "cosmosdb sql api rest", "azure", "rest"],
     "homepage"   : "https://cosmosdb.macmaxwell.com",

@@ -2,8 +2,15 @@
 
 namespace Macsakini\CosmosDB;
 
+use Macsakini\CosmosDB\Authorization\ResourceLinkBuilder;
+use Macsakini\CosmosDB\Authorization\ResourceType;
+use Macsakini\CosmosDB\Authorization\Verb;
+use Macsakini\CosmosDB\Authorization\Token;
+use Macsakini\CosmosDB\Authorization\Auth;
+use Macsakini\CosmosDB\Query\HeaderBuilder;
 
-class CosmosDB
+
+class CosmosDB implements CosmosInterface
 {
     private string $host;
     private string $private_key;
@@ -13,46 +20,83 @@ class CosmosDB
         $this->host = $host;
         $this->private_key = $private_key;
     }
-    public function selectDB()
+    public function auth($host, $private_key, $verb, $rtype, $resourcelink, $token)
     {
-        $headers = new Query\HeaderBuilder(
-            "sjsjs",
-            "jsksk"
+        return new Auth(
+            $host,
+            $private_key,
+            $verb,
+            $rtype,
+            $resourcelink,
+            $token
         );
-        $headers->build();
-
-        $body = "{id}";
     }
-    public function createDB()
+    public function create()
     {
-        $headers = new Query\HeaderBuilder(
-            "sjsjs",
-            "jsksk"
-        );
+        $verb = Verb::POST;
+        $rtype = ResourceType::DBS->rtype();
+        $token = Token::MASTER->token();
+
+        $resourcelink = new ResourceLinkBuilder();
+        $resourcelink->build();
+
+        $auth = $this->auth($this->host, $this->private_key, $verb, $rtype, $resourcelink, $token);
+
+        $headers = new HeaderBuilder($auth, "JSON");
+        $headers->setallowtentativewrites(true);
         $headers->build();
-
-        $body = "{id}";
-
-    }
-    public function listDB()
-    {
-        $headers = new Query\HeaderBuilder(
-            "sjsjs",
-            "jsksk"
-        );
-        $headers->build();
-
-        $body = "{id}";
 
     }
-    public function deleteDB()
+    public function list()
     {
-        $headers = new Query\HeaderBuilder(
-            "sjsjs",
-            "jsksk"
-        );
+        $verb = Verb::GET;
+        $rtype = ResourceType::DBS->rtype();
+        $token = Token::MASTER->token();
+
+        $resourcelink = new ResourceLinkBuilder();
+        $resourcelink->build();
+
+        $auth = $this->auth($this->host, $this->private_key, $verb, $rtype, $resourcelink, $token);
+
+        $headers = new HeaderBuilder($auth, "JSON");
+        $headers->setallowtentativewrites(true);
+        $headers->build();
+    }
+
+    public function get(string $dbid)
+    {
+        $verb = Verb::GET->verb();
+        $rtype = ResourceType::DBS->rtype();
+        $token = Token::MASTER->token();
+
+        $resourcelink = new ResourceLinkBuilder();
+        $resourcelink->build();
+
+        $auth = $this->auth($this->host, $this->private_key, $verb, $rtype, $resourcelink, $token);
+
+        $headers = new HeaderBuilder($auth, "JSON");
+        $headers->setallowtentativewrites(true);
         $headers->build();
 
-        $body = "{id}";
+    }
+    public function delete(string $dbid)
+    {
+        $verb = Verb::DELETE;
+        $rtype = ResourceType::DBS->rtype();
+        $token = Token::MASTER->token();
+
+        $resourcelink = new ResourceLinkBuilder();
+        $resourcelink->build();
+
+        $auth = $this->auth($this->host, $this->private_key, $verb, $rtype, $resourcelink, $token);
+
+        $headers = new HeaderBuilder($auth, "JSON");
+        $headers->setallowtentativewrites(true);
+        $headers->build();
+    }
+
+    public function query()
+    {
+
     }
 }

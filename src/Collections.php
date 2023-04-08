@@ -7,6 +7,7 @@ use Macsakini\CosmosDB\Authorization\ResourceType;
 use Macsakini\CosmosDB\Authorization\Verb;
 use Macsakini\CosmosDB\Authorization\Token;
 use Macsakini\CosmosDB\Authorization\Auth;
+use Macsakini\CosmosDB\Guzzle\GuzzleRequest;
 use Macsakini\CosmosDB\Query\HeaderBuilder;
 
 class Collections implements CosmosInterface
@@ -62,6 +63,13 @@ class Collections implements CosmosInterface
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers->build();
+
+        $execute = new GuzzleRequest(
+            $this->host,
+            $headers->build(),
+            $verb
+        );
+        $execute->call();
     }
     public function create()
     {
@@ -82,6 +90,13 @@ class Collections implements CosmosInterface
         $headers->setallowtentativewrites(true);
         $headers->build();
 
+        $execute = new GuzzleRequest(
+            $this->host,
+            $headers->build(),
+            $verb
+        );
+        $execute->call();
+
     }
     public function list()
     {
@@ -101,6 +116,13 @@ class Collections implements CosmosInterface
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers->build();
+
+        $execute = new GuzzleRequest(
+            $this->host,
+            $headers->build(),
+            $verb
+        );
+        $execute->call();
 
     }
     public function delete(string $containerid)
@@ -123,10 +145,12 @@ class Collections implements CosmosInterface
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers->build();
-    }
 
-    public function query()
-    {
-
+        $execute = new GuzzleRequest(
+            $this->host,
+            $headers->build(),
+            $verb
+        );
+        $execute->call();
     }
 }

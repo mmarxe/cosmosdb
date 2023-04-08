@@ -8,5 +8,4 @@ interface CosmosInterface
     public function get();
     public function list();
     public function create();
-    public function query();
 }

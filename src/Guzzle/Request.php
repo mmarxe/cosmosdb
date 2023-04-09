@@ -25,8 +25,8 @@ class GuzzleRequest
         $res = $client->request(
             $this->verb,
             $this->host,
-            [
-                'auth' => ['user', 'pass']
+            options: [
+                $this->headers
             ]
         );
         return $res->getStatusCode();

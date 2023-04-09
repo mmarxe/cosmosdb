@@ -1,4 +1,5 @@
 <?php
+
 namespace Macsakini\CosmosDB\Authorization;
 
 class Auth
@@ -8,7 +9,6 @@ class Auth
     private string $verb;
     private string $resourcetype;
     private string $resourcelink;
-    private string $signature;
     private string $typeoftoken;
     private string $tokenversion = "1.0";
 

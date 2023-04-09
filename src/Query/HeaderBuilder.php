@@ -25,7 +25,6 @@ class HeaderBuilder
     {
         $this->authorization = $authorization;
         $this->contenttype = $contenttype;
-
     }
 
     public function setifmatch(string $arg)

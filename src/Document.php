@@ -17,8 +17,8 @@ class Document implements CosmosInterface
     public string $private_key;
     public string $dbid;
     public string $containerid;
-    public $rtype = ResourceType::DOCS;
-    public $token = Token::MASTER;
+    public $rtype = ResourceType::DOCS->value;
+    public $token = Token::MASTER->value;
 
     public function __construct(string $host, string $private_key, string $dbid, string $containerid)
     {
@@ -27,6 +27,7 @@ class Document implements CosmosInterface
         $this->dbid = $dbid;
         $this->containerid = $containerid;
     }
+
     public function auth(
         $host,
         $private_key,
@@ -45,6 +46,7 @@ class Document implements CosmosInterface
         );
         return $auth->auth();
     }
+
     public function create()
     {
         $verb = Verb::POST->value;
@@ -54,7 +56,7 @@ class Document implements CosmosInterface
         $resourcelink->setDatabase($this->dbid);
         $resourcelink->setResourceTypeContainer();
         $resourcelink->setContainer($this->containerid);
-        $resourcelink->build();
+        $resourcelink = $resourcelink->build();
 
         $auth = $this->auth(
             $this->host,
@@ -66,16 +68,17 @@ class Document implements CosmosInterface
         );
 
         $headers = new HeaderBuilder($auth, "JSON");
-        $headers->setallowtentativewrites(true);
-        $headers->build();
+        $headers->setallowtentativewrites("true");
+        $headers = $headers->build();
 
         $execute = new GuzzleRequest(
             $this->host,
-            $headers->build(),
+            $headers,
             $verb
         );
         $execute->call();
     }
+
     public function list()
     {
         $verb = Verb::GET->value;
@@ -85,7 +88,7 @@ class Document implements CosmosInterface
         $resourcelink->setDatabase($this->dbid);
         $resourcelink->setResourceTypeContainer();
         $resourcelink->setContainer($this->containerid);
-        $resourcelink->build();
+        $resourcelink = $resourcelink->build();
 
         $auth = $this->auth(
             $this->host,
@@ -98,11 +101,11 @@ class Document implements CosmosInterface
 
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
-        $headers->build();
+        $headers = $headers->build();
 
         $execute = new GuzzleRequest(
             $this->host,
-            $headers->build(),
+            $headers,
             $verb
         );
         $execute->call();
@@ -119,7 +122,7 @@ class Document implements CosmosInterface
         $resourcelink->setContainer($this->containerid);
         $resourcelink->setResourceTypeDocument();
         $resourcelink->setDocument($docid);
-        $resourcelink->build();
+        $resourcelink = $resourcelink->build();
 
         $auth = $this->auth(
             $this->host,
@@ -131,16 +134,17 @@ class Document implements CosmosInterface
         );
 
         $headers = new HeaderBuilder($auth, "JSON");
-        $headers->setallowtentativewrites(true);
-        $headers->build();
+        $headers->setallowtentativewrites("true");
+        $headers = $headers->build();
 
         $execute = new GuzzleRequest(
             $this->host,
-            $headers->build(),
+            $headers,
             $verb
         );
         $execute->call();
     }
+
     public function delete(string $docid)
     {
         $verb = Verb::DELETE->value;
@@ -152,7 +156,7 @@ class Document implements CosmosInterface
         $resourcelink->setContainer($this->containerid);
         $resourcelink->setResourceTypeDocument();
         $resourcelink->setDocument($docid);
-        $resourcelink->build();
+        $resourcelink = $resourcelink->build();
 
         $auth = $this->auth(
             $this->host,
@@ -165,11 +169,11 @@ class Document implements CosmosInterface
 
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
-        $headers->build();
+        $headers = $headers->build();
 
         $execute = new GuzzleRequest(
             $this->host,
-            $headers->build(),
+            $headers,
             $verb
         );
         $execute->call();

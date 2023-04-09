@@ -2,14 +2,14 @@
 
 namespace Macsakini\CosmosDB\Authorization;
 
-enum ResourceType : string
+enum ResourceType: string
 {
-    Case DBS = 'dbs';
-    Case COLLS = 'colls';
-    Case SPROCS = 'sprocs';
-    Case UDFS = 'udfs';
-    Case TRIGGERS = 'triggers';
-    Case USERS = 'users';
-    Case PERMISSIONS = 'permissions';
-    Case DOCS = 'docs';
+    case DBS = 'dbs';
+    case COLLS = 'colls';
+    case SPROCS = 'sprocs';
+    case UDFS = 'udfs';
+    case TRIGGERS = 'triggers';
+    case USERS = 'users';
+    case PERMISSIONS = 'permissions';
+    case DOCS = 'docs';
 }

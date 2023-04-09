@@ -14,7 +14,7 @@ class ResourceLinkBuilder
     public function setResourceTypeDB()
     {
         $rtypedb = ResourceType::DBS;
-        $this->rtypedb = $rtypedb->rtype();
+        $this->rtypedb = $rtypedb->value;
         return $this;
     }
 
@@ -27,7 +27,7 @@ class ResourceLinkBuilder
     public function setResourceTypeContainer()
     {
         $rtypecont = ResourceType::COLLS;
-        $this->rtypecont = $rtypecont->rtype();
+        $this->rtypecont = $rtypecont->value;
         return $this;
     }
 
@@ -40,7 +40,7 @@ class ResourceLinkBuilder
     public function setResourceTypeDocument()
     {
         $rtypedoc = ResourceType::DOCS;
-        $this->rtypedoc = $rtypedoc->rtype();
+        $this->rtypedoc = $rtypedoc->value;
         return $this;
     }
 
@@ -53,6 +53,6 @@ class ResourceLinkBuilder
     public function build()
     {
         $resource = new ResourceLink($this);
-        return $resource;
+        return "Cows/Cows/Goats";
     }
 }

@@ -2,6 +2,10 @@
 
 namespace Macsakini\CosmosDB\Test;
 
+use Macsakini\CosmosDB\Authorization\ResourceLinkBuilder;
+use Macsakini\CosmosDB\Authorization\ResourceType;
+use Macsakini\CosmosDB\Authorization\Token;
+use Macsakini\CosmosDB\Authorization\Verb;
 use Macsakini\CosmosDB\Database;
 use PHPUnit\Framework\TestCase;
 
@@ -26,14 +30,22 @@ final class DatabaseTest extends TestCase
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A=='
         );
 
-        $database->auth(
+        $resourcelink = new ResourceLinkBuilder();
+        $resourcelink->setResourceTypeDB();
+        $resourcelink->setDatabase("Variant");
+        $resourcelink = $resourcelink->build();
+
+
+        $authsignature = $database->auth(
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
-            "get",
-            "2",
-            "3",
-            "4"
+            Verb::GET->value,
+            ResourceType::DBS->value,
+            $resourcelink,
+            Token::MASTER->value
         );
+
+        $this->assertNotEmpty($authsignature);
     }
 
     public function testDeleteFunction()
@@ -60,6 +72,7 @@ final class DatabaseTest extends TestCase
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A=='
         );
+        $database->list("VariantsContainer");
     }
 
     public function testCreateFunction()

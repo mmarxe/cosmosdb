@@ -2,6 +2,10 @@
 
 namespace Macsakini\CosmosDB\Tests;
 
+use Macsakini\CosmosDB\Authorization\ResourceLinkBuilder;
+use Macsakini\CosmosDB\Authorization\ResourceType;
+use Macsakini\CosmosDB\Authorization\Token;
+use Macsakini\CosmosDB\Authorization\Verb;
 use Macsakini\CosmosDB\Document;
 use PHPUnit\Framework\TestCase;
 
@@ -32,14 +36,25 @@ final class DocumentTest extends TestCase
             'VariantsContainer'
         );
 
-        $document->auth(
+        $resourcelink = new ResourceLinkBuilder();
+        $resourcelink->setResourceTypeDB();
+        $resourcelink->setDatabase("Variant");
+        $resourcelink->setResourceTypeContainer();
+        $resourcelink->setContainer("VariantContainer");
+        $resourcelink->setResourceTypeDocument();
+        $resourcelink->setDocument("82892920101");
+        $resourcelink = $resourcelink->build();
+
+        $authsignature = $document->auth(
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
-            "get",
-            "2",
-            "3",
-            "4"
+            Verb::GET->value,
+            ResourceType::DBS->value,
+            $resourcelink,
+            Token::MASTER->value
         );
+
+        $this->assertNotEmpty($authsignature);
     }
 
     public function testDeleteFunction()
@@ -72,6 +87,7 @@ final class DocumentTest extends TestCase
             'Variant',
             'VariantsContainer'
         );
+        $document->list("VariantsContainer");
     }
 
     public function testCreateFunction()

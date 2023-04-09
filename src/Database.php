@@ -15,14 +15,15 @@ class Database implements CosmosInterface
 {
     public string $host;
     public string $private_key;
-    public $rtype = ResourceType::DBS;
-    public $token = Token::MASTER;
+    public $rtype = ResourceType::DBS->value;
+    public $token = Token::MASTER->value;
 
     public function __construct(string $host, string $private_key)
     {
         $this->host = $host;
         $this->private_key = $private_key;
     }
+
     public function auth(
         $host,
         $private_key,
@@ -41,12 +42,13 @@ class Database implements CosmosInterface
         );
         return $auth->auth();
     }
+
     public function create()
     {
         $verb = Verb::POST->value;
 
         $resourcelink = new ResourceLinkBuilder();
-        $resourcelink->build();
+        $resourcelink = $resourcelink->build();
 
         $auth = $this->auth(
             $this->host,
@@ -59,21 +61,22 @@ class Database implements CosmosInterface
 
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
-        $headers->build();
+        $headers = $headers->build();
 
         $execute = new GuzzleRequest(
             $this->host,
-            $headers->build(),
+            $headers,
             $verb
         );
         $execute->call();
     }
+
     public function list()
     {
         $verb = Verb::GET->value;
 
         $resourcelink = new ResourceLinkBuilder();
-        $resourcelink->build();
+        $resourcelink = $resourcelink->build();
 
         $auth = $this->auth(
             $this->host,
@@ -86,11 +89,11 @@ class Database implements CosmosInterface
 
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
-        $headers->build();
+        $headers = $headers->build();
 
         $execute = new GuzzleRequest(
             $this->host,
-            $headers->build(),
+            $headers,
             $verb
         );
         $execute->call();
@@ -103,7 +106,7 @@ class Database implements CosmosInterface
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
         $resourcelink->setDatabase($dbid);
-        $resourcelink->build();
+        $resourcelink = $resourcelink->build();
 
         $auth = $this->auth(
             $this->host,
@@ -116,15 +119,16 @@ class Database implements CosmosInterface
 
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
-        $headers->build();
+        $headers = $headers->build();
 
         $execute = new GuzzleRequest(
             $this->host,
-            $headers->build(),
+            $headers,
             $verb
         );
         $execute->call();
     }
+
     public function delete(string $dbid)
     {
         $verb = Verb::DELETE->value;
@@ -132,7 +136,7 @@ class Database implements CosmosInterface
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
         $resourcelink->setDatabase($dbid);
-        $resourcelink->build();
+        $resourcelink = $resourcelink->build();
 
         $auth = $this->auth(
             $this->host,
@@ -145,11 +149,11 @@ class Database implements CosmosInterface
 
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
-        $headers->build();
+        $headers = $headers->build();
 
         $execute = new GuzzleRequest(
             $this->host,
-            $headers->build(),
+            $headers,
             $verb
         );
         $execute->call();

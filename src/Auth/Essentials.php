@@ -4,19 +4,17 @@ namespace Macsakini\CosmosDB\Authorization;
 
 enum Token: string
 {
-    Case MASTER = 'master';
-    Case AAD = 'aad';
-    Case RESOURCE = 'resource';
+    case MASTER = 'master';
+    case AAD = 'aad';
+    case RESOURCE = 'resource';
 }
 
 
-enum Verb : string
+enum Verb: string
 {
-    Case GET = 'get';
-    Case POST = 'post';
-    Case PUT = 'put';
-    Case PATCH = 'patch';
-    Case DELETE = 'delete';
-
-   
+    case GET = 'get';
+    case POST = 'post';
+    case PUT = 'put';
+    case PATCH = 'patch';
+    case DELETE = 'delete';
 }

@@ -1,4 +1,4 @@
-# cosmosdb-php
+# cosmosdb
 
 This is a wrapper around the REST API to make it simpler to utilize Azure Cosmos DB from your php services such as Wordpress or Laravel.
 

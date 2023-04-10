@@ -11,7 +11,7 @@ use Macsakini\CosmosDB\Authorization\Auth;
 use Macsakini\CosmosDB\Guzzle\GuzzleRequest;
 use Macsakini\CosmosDB\Query\HeaderBuilder;
 
-class Document implements CosmosInterface
+class Document extends BaseCosmos
 {
     public string $host;
     public string $private_key;
@@ -28,24 +28,6 @@ class Document implements CosmosInterface
         $this->containerid = $containerid;
     }
 
-    public function auth(
-        $host,
-        $private_key,
-        $verb,
-        $rtype,
-        $resourcelink,
-        $token
-    ) {
-        $auth = new Auth(
-            $host,
-            $private_key,
-            $verb,
-            $rtype,
-            $resourcelink,
-            $token
-        );
-        return $auth->auth();
-    }
 
     public function create()
     {
@@ -70,13 +52,6 @@ class Document implements CosmosInterface
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites("true");
         $headers = $headers->build();
-
-        $execute = new GuzzleRequest(
-            $this->host,
-            $headers,
-            $verb
-        );
-        $execute->call();
     }
 
     public function list()
@@ -102,13 +77,6 @@ class Document implements CosmosInterface
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
-
-        $execute = new GuzzleRequest(
-            $this->host,
-            $headers,
-            $verb
-        );
-        $execute->call();
     }
 
     public function get(string $docid)
@@ -136,13 +104,6 @@ class Document implements CosmosInterface
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites("true");
         $headers = $headers->build();
-
-        $execute = new GuzzleRequest(
-            $this->host,
-            $headers,
-            $verb
-        );
-        $execute->call();
     }
 
     public function delete(string $docid)
@@ -170,12 +131,5 @@ class Document implements CosmosInterface
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
-
-        $execute = new GuzzleRequest(
-            $this->host,
-            $headers,
-            $verb
-        );
-        $execute->call();
     }
 }

@@ -10,7 +10,7 @@ use Macsakini\CosmosDB\Authorization\Auth;
 use Macsakini\CosmosDB\Guzzle\GuzzleRequest;
 use Macsakini\CosmosDB\Query\HeaderBuilder;
 
-class Collection implements CosmosInterface
+class Collection extends BaseCosmos
 {
     public string $host;
     public string $private_key;
@@ -24,25 +24,6 @@ class Collection implements CosmosInterface
         $this->host = $host;
         $this->private_key = $private_key;
         $this->dbid = $dbid;
-    }
-
-    public function auth(
-        $host,
-        $private_key,
-        $verb,
-        $rtype,
-        $resourcelink,
-        $token
-    ) {
-        $auth = new Auth(
-            $host,
-            $private_key,
-            $verb,
-            $rtype,
-            $resourcelink,
-            $token
-        );
-        return $auth->auth();
     }
 
     public function get(string $containerid)
@@ -68,13 +49,6 @@ class Collection implements CosmosInterface
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
-
-        $execute = new GuzzleRequest(
-            $this->host,
-            $headers,
-            $verb
-        );
-        $execute->call();
     }
 
     public function create()
@@ -98,13 +72,6 @@ class Collection implements CosmosInterface
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
-
-        $execute = new GuzzleRequest(
-            $this->host,
-            $headers,
-            $verb
-        );
-        $execute->call();
     }
 
     public function list()
@@ -128,13 +95,6 @@ class Collection implements CosmosInterface
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
-
-        $execute = new GuzzleRequest(
-            $this->host,
-            $headers,
-            $verb
-        );
-        $execute->call();
     }
 
     public function delete(string $containerid)
@@ -160,12 +120,5 @@ class Collection implements CosmosInterface
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
-
-        $execute = new GuzzleRequest(
-            $this->host,
-            $headers,
-            $verb
-        );
-        $execute->call();
     }
 }

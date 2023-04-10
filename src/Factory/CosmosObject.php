@@ -1,9 +1,9 @@
 <?php
-namespace Macsakini\CosmosDB;
 
-interface CosmosInterface
+
+interface CosmosObject
 {
-    public function auth( 
+    public function auth(
         $host,
         $private_key,
         $verb,

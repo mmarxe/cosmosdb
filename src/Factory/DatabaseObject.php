@@ -1,7 +1,5 @@
 <?php
 
-namespace Macsakini\CosmosDB;
-
 use Macsakini\CosmosDB\Authorization\ResourceLinkBuilder;
 use Macsakini\CosmosDB\Authorization\ResourceType;
 use Macsakini\CosmosDB\Authorization\Verb;
@@ -10,18 +8,31 @@ use Macsakini\CosmosDB\Authorization\Auth;
 use Macsakini\CosmosDB\Guzzle\GuzzleRequest;
 use Macsakini\CosmosDB\Query\HeaderBuilder;
 
-
-class Database extends BaseCosmos
+class DatabaseObject implements CosmosObject
 {
     public string $host;
     public string $private_key;
     public $rtype = ResourceType::DBS->value;
     public $token = Token::MASTER->value;
 
-    public function __construct(string $host, string $private_key)
-    {
-        $this->host = $host;
-        $this->private_key = $private_key;
+
+    public function auth(
+        $host,
+        $private_key,
+        $verb,
+        $rtype,
+        $resourcelink,
+        $token
+    ) {
+        $auth = new Auth(
+            $host,
+            $private_key,
+            $verb,
+            $rtype,
+            $resourcelink,
+            $token
+        );
+        return $auth->auth();
     }
 
     public function create()
@@ -43,6 +54,13 @@ class Database extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+
+        $execute = new GuzzleRequest(
+            $this->host,
+            $headers,
+            $verb
+        );
+        $execute->call();
     }
 
     public function list()
@@ -64,6 +82,13 @@ class Database extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+
+        $execute = new GuzzleRequest(
+            $this->host,
+            $headers,
+            $verb
+        );
+        $execute->call();
     }
 
     public function get(string $dbid)
@@ -87,6 +112,13 @@ class Database extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+
+        $execute = new GuzzleRequest(
+            $this->host,
+            $headers,
+            $verb
+        );
+        $execute->call();
     }
 
     public function delete(string $dbid)
@@ -110,5 +142,12 @@ class Database extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+
+        $execute = new GuzzleRequest(
+            $this->host,
+            $headers,
+            $verb
+        );
+        $execute->call();
     }
 }

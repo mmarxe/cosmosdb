@@ -11,6 +11,7 @@ class Auth
     private string $resourcelink;
     private string $typeoftoken;
     private string $tokenversion = "1.0";
+    public string $rfc7231_date;
 
     public function __construct($host, $private_key, $verb, $resourcetype, $resourcelink, $typeoftoken)
     {
@@ -31,8 +32,8 @@ class Auth
 
     public function signature()
     {
-        $rfc7231_date = strtolower($this->UTCDateTime());
-        $payload = "{$this->verb}\n{$this->resourcetype}\n{$this->resourcelink}\n{$rfc7231_date}\n\n";
+        $this->rfc7231_date = strtolower($this->UTCDateTime());
+        $payload = "{$this->verb}\n{$this->resourcetype}\n{$this->resourcelink}\n{$this->rfc7231_date}\n\n";
         $key_decode = base64_decode($this->private_key);
         $hmac256 = hash_hmac("sha256", $payload, $key_decode);
         return base64_encode($hmac256);

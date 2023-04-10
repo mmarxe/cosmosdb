@@ -3,7 +3,6 @@
 namespace Macsakini\CosmosDB\Guzzle;
 
 use Macsakini\CosmosDB\Query\Header;
-use Macsakini\CosmosDB\Authorization\Verb;
 use GuzzleHttp\Client;
 
 class GuzzleRequest
@@ -27,8 +26,7 @@ class GuzzleRequest
 
     public function call()
     {
-        print_r($this->headers);
-        $header_array = (array) $this->headers;
+        $header_array = [];
         $header_array['x-ms-version'] = '2018-12-31';
         $header_array['x-ms-date'] = strtolower($this->UTCDateTime());
         $client = new Client();
@@ -39,6 +37,7 @@ class GuzzleRequest
                 'headers' => $header_array
             ]
         );
-        return $res->getStatusCode();
+        echo ($header_array);
+        return $res;
     }
 }

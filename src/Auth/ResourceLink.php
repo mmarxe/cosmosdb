@@ -16,10 +16,10 @@ class ResourceLink
     public function __construct(ResourceLinkBuilder $builder)
     {
         $this->rtypedb = $builder->rtypedb;
-        $this->rtypecont = $builder->rtypecont;
-        $this->rtypedoc = $builder->rtypedoc;
         $this->dbid = $builder->dbid;
+        $this->rtypecont = $builder->rtypecont;
         $this->contid = $builder->contid;
+        $this->rtypedoc = $builder->rtypedoc;
         $this->docid = $builder->docid;
     }
 

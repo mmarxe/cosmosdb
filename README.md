@@ -1,8 +1,9 @@
 # cosmosdb
 
-This is a wrapper around the api to make it simpler to utilize zzure cosmosdb from your php services such as Wordpress, Symphony and Laravel.
+This is a wrapper around the api to make it simpler to utilize azure cosmosdb from your php services such as Wordpress, Symphony and Laravel.
 
 Wrapper for Azure Cosmos DB.
+
 https://learn.microsoft.com/en-us/rest/api/cosmos-db/
 
 # Installation
@@ -12,7 +13,7 @@ Include cosmosdb/cosmosdb in your project, by adding it to your composer.json fi
 ```
 {
     "require": {
-        "cosmosdb/cosmosdb": "1.*"
+        "cosmosdb/cosmosdb": "1.1.0"
     }
 }
 ```
@@ -24,3 +25,5 @@ composer require cosmosdb/cosmosdb
 ```
 
 at the root of your project.
+
+# Usage

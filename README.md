@@ -6,7 +6,7 @@ Wrapper for Azure Cosmos DB.
 
 https://learn.microsoft.com/en-us/rest/api/cosmos-db/
 
-# Installation
+## Installation
 
 Include cosmosdb/cosmosdb in your project, by adding it to your composer.json file.
 
@@ -26,4 +26,4 @@ composer require cosmosdb/cosmosdb
 
 at the root of your project.
 
-# Usage
+## Usage

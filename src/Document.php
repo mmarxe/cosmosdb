@@ -7,14 +7,16 @@ use Macsakini\CosmosDB\Authorization\ResourceLinkBuilder;
 use Macsakini\CosmosDB\Authorization\ResourceType;
 use Macsakini\CosmosDB\Authorization\Verb;
 use Macsakini\CosmosDB\Authorization\Token;
-use Macsakini\CosmosDB\Authorization\Auth;
-use Macsakini\CosmosDB\Guzzle\GuzzleRequest;
 use Macsakini\CosmosDB\Query\HeaderBuilder;
 
 class Document extends BaseCosmos
 {
     public string $host;
     public string $private_key;
+
+    public string $headers;
+    public string $verb;
+
     public string $dbid;
     public string $containerid;
     public $rtype = ResourceType::DOCS->value;

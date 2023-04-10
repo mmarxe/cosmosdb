@@ -65,7 +65,8 @@ final class DocumentTest extends TestCase
             'Variant',
             'VariantsContainer'
         );
-        $document->delete("VariantsContainer");
+        $response = $document->delete("VariantsContainer");
+        $this->assertNotEmpty($response);
     }
 
     public function testGetFunction()
@@ -76,7 +77,8 @@ final class DocumentTest extends TestCase
             'Variant',
             'VariantsContainer'
         );
-        $document->get("VariantsContainer");
+        $response = $document->get("VariantsContainer");
+        $this->assertNotEmpty($response);
     }
 
     public function testListFunction()
@@ -87,7 +89,8 @@ final class DocumentTest extends TestCase
             'Variant',
             'VariantsContainer'
         );
-        $document->list("VariantsContainer");
+        $response = $document->list();
+        $this->assertNotEmpty($response);
     }
 
     public function testCreateFunction()
@@ -98,6 +101,7 @@ final class DocumentTest extends TestCase
             'Variant',
             'VariantsContainer'
         );
-        $document->delete("VariantContainer");
+        $response = $document->create();
+        $this->assertNotEmpty($response);
     }
 }

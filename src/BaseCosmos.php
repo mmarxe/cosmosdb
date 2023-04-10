@@ -8,8 +8,6 @@ use Macsakini\CosmosDB\Guzzle\GuzzleRequest;
 abstract class BaseCosmos
 {
     public string $host;
-    public $headers;
-    public string $verb;
 
     public function auth(
         $host,
@@ -36,12 +34,12 @@ abstract class BaseCosmos
     abstract public function create();
 
 
-    public function execute()
+    public function execute($host, $headers, $verb)
     {
         $execute = new GuzzleRequest(
-            $this->host,
-            $this->headers,
-            $this->verb
+            $host,
+            $headers,
+            $verb
         );
         $execute->call();
     }

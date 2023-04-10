@@ -45,13 +45,11 @@ final class CollectionTest extends TestCase
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
             Verb::GET->value,
             ResourceType::DBS->value,
-            "3",
+            $resourcelink,
             Token::MASTER->value
         );
 
         $this->assertNotEmpty($authsignature);
-
-        return $authsignature;
     }
 
     public function testDeleteFunction()
@@ -61,7 +59,8 @@ final class CollectionTest extends TestCase
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
             'Variants'
         );
-        $collection->delete("VariantsContainer");
+        $response = $collection->delete("VariantsContainer");
+        $this->assertNotEmpty($response);
     }
 
     public function testGetFunction()
@@ -71,7 +70,8 @@ final class CollectionTest extends TestCase
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
             'Variants'
         );
-        $collection->get("VariantsContainer");
+        $response = $collection->get("VariantsContainer");
+        $this->assertNotEmpty($response);
     }
 
     public function testListFunction()
@@ -81,7 +81,8 @@ final class CollectionTest extends TestCase
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
             'Variants'
         );
-        $collection->list("VariantsContainer");
+        $response = $collection->list();
+        $this->assertNotEmpty($response);
     }
 
     public function testCreateFunction()
@@ -91,6 +92,7 @@ final class CollectionTest extends TestCase
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
             'Variants'
         );
-        $collection->delete("VariantContainer");
+        $response = $collection->create();
+        $this->assertNotEmpty($response);
     }
 }

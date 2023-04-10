@@ -67,15 +67,19 @@ class ComposerStaticInit9ecf8ed1c1252b7a4ccf7d20042ad191
     );
 
     public static $classMap = array (
+        'BaseCreator' => __DIR__ . '/../..' . '/src/Factory/BaseCreator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'CosmosObject' => __DIR__ . '/../..' . '/src/Factory/CosmosObject.php',
+        'DatabaseCreator' => __DIR__ . '/../..' . '/src/Factory/DatabaseCreator.php',
+        'DatabaseObject' => __DIR__ . '/../..' . '/src/Factory/DatabaseObject.php',
         'Macsakini\\CosmosDB\\Authorization\\Auth' => __DIR__ . '/../..' . '/src/Auth/Auth.php',
         'Macsakini\\CosmosDB\\Authorization\\ResourceLink' => __DIR__ . '/../..' . '/src/Auth/ResourceLink.php',
         'Macsakini\\CosmosDB\\Authorization\\ResourceLinkBuilder' => __DIR__ . '/../..' . '/src/Auth/ResourceLinkBuilder.php',
         'Macsakini\\CosmosDB\\Authorization\\ResourceType' => __DIR__ . '/../..' . '/src/Auth/ResourceType.php',
         'Macsakini\\CosmosDB\\Authorization\\Token' => __DIR__ . '/../..' . '/src/Auth/Essentials.php',
         'Macsakini\\CosmosDB\\Authorization\\Verb' => __DIR__ . '/../..' . '/src/Auth/Essentials.php',
+        'Macsakini\\CosmosDB\\BaseCosmos' => __DIR__ . '/../..' . '/src/BaseCosmos.php',
         'Macsakini\\CosmosDB\\Collection' => __DIR__ . '/../..' . '/src/Collection.php',
-        'Macsakini\\CosmosDB\\CosmosInterface' => __DIR__ . '/../..' . '/src/CosmosInterface.php',
         'Macsakini\\CosmosDB\\Database' => __DIR__ . '/../..' . '/src/Database.php',
         'Macsakini\\CosmosDB\\Document' => __DIR__ . '/../..' . '/src/Document.php',
         'Macsakini\\CosmosDB\\Guzzle\\GuzzleRequest' => __DIR__ . '/../..' . '/src/Guzzle/Request.php',

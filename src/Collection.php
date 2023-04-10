@@ -12,10 +12,6 @@ class Collection extends BaseCosmos
 {
     public string $host;
     public string $private_key;
-    
-    public string $headers;
-    public string $verb;
-
     public string $dbid;
     public $dbrtype = ResourceType::DBS->value;
     public $rtype = ResourceType::COLLS->value;
@@ -51,6 +47,7 @@ class Collection extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+        $this->execute($this->host, $headers, $verb);
     }
 
     public function create()
@@ -74,6 +71,7 @@ class Collection extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+        $this->execute($this->host, $headers, $verb);
     }
 
     public function list()
@@ -97,6 +95,7 @@ class Collection extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+        $this->execute($this->host, $headers, $verb);
     }
 
     public function delete(string $containerid)
@@ -122,5 +121,6 @@ class Collection extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+        $this->execute($this->host, $headers, $verb);
     }
 }

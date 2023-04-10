@@ -24,7 +24,7 @@ class Header
     public function __construct(HeaderBuilder $builder)
     {
         $this->authorization = $builder->authorization;
-        $this->contenttype = $builder->contenttype;
+        $this->contenttype = "application/query+json";
         // $this->ifmatch = $builder->ifmatch;
         // $this->ifnonematch = $builder->ifnonematch;
         // $this->ifmodifiedmatch = $builder->ifmodifiedmatch;

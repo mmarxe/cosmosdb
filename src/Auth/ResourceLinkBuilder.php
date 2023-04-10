@@ -2,6 +2,8 @@
 
 namespace Macsakini\CosmosDB\Authorization;
 
+use Exception;
+
 class ResourceLinkBuilder
 {
     public string $rtypedb;
@@ -53,6 +55,6 @@ class ResourceLinkBuilder
     public function build()
     {
         $resource = new ResourceLink($this);
-        return "Cows/Cows/Goats";
+        return $resource;
     }
 }

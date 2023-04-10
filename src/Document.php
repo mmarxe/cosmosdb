@@ -13,10 +13,6 @@ class Document extends BaseCosmos
 {
     public string $host;
     public string $private_key;
-
-    public string $headers;
-    public string $verb;
-
     public string $dbid;
     public string $containerid;
     public $rtype = ResourceType::DOCS->value;
@@ -54,6 +50,7 @@ class Document extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites("true");
         $headers = $headers->build();
+        $this->execute($this->host, $headers, $verb);
     }
 
     public function list()
@@ -79,6 +76,7 @@ class Document extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+        $this->execute($this->host, $headers, $verb);
     }
 
     public function get(string $docid)
@@ -106,7 +104,9 @@ class Document extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites("true");
         $headers = $headers->build();
+        $this->execute($this->host, $headers, $verb);
     }
+
 
     public function delete(string $docid)
     {
@@ -133,5 +133,6 @@ class Document extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+        $this->execute($this->host, $headers, $verb);
     }
 }

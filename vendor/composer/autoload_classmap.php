@@ -6,15 +6,19 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'BaseCreator' => $baseDir . '/src/Factory/BaseCreator.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'CosmosObject' => $baseDir . '/src/Factory/CosmosObject.php',
+    'DatabaseCreator' => $baseDir . '/src/Factory/DatabaseCreator.php',
+    'DatabaseObject' => $baseDir . '/src/Factory/DatabaseObject.php',
     'Macsakini\\CosmosDB\\Authorization\\Auth' => $baseDir . '/src/Auth/Auth.php',
     'Macsakini\\CosmosDB\\Authorization\\ResourceLink' => $baseDir . '/src/Auth/ResourceLink.php',
     'Macsakini\\CosmosDB\\Authorization\\ResourceLinkBuilder' => $baseDir . '/src/Auth/ResourceLinkBuilder.php',
     'Macsakini\\CosmosDB\\Authorization\\ResourceType' => $baseDir . '/src/Auth/ResourceType.php',
     'Macsakini\\CosmosDB\\Authorization\\Token' => $baseDir . '/src/Auth/Essentials.php',
     'Macsakini\\CosmosDB\\Authorization\\Verb' => $baseDir . '/src/Auth/Essentials.php',
+    'Macsakini\\CosmosDB\\BaseCosmos' => $baseDir . '/src/BaseCosmos.php',
     'Macsakini\\CosmosDB\\Collection' => $baseDir . '/src/Collection.php',
-    'Macsakini\\CosmosDB\\CosmosInterface' => $baseDir . '/src/CosmosInterface.php',
     'Macsakini\\CosmosDB\\Database' => $baseDir . '/src/Database.php',
     'Macsakini\\CosmosDB\\Document' => $baseDir . '/src/Document.php',
     'Macsakini\\CosmosDB\\Guzzle\\GuzzleRequest' => $baseDir . '/src/Guzzle/Request.php',

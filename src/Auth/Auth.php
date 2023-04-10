@@ -18,13 +18,14 @@ class Auth
         $this->private_key = $private_key;
         $this->verb = $verb;
         $this->resourcetype = $resourcetype;
-        $this->resourcelink = $resourcelink;
+        $this->resourcelink = strval($resourcelink);
         $this->typeoftoken = $typeoftoken;
     }
 
     public function auth()
     {
         $signature = $this->signature();
+        echo $this->resourcelink;
         return "type=$this->typeoftoken&ver=$this->tokenversion&sig=$signature";
     }
 

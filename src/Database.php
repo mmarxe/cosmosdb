@@ -13,10 +13,6 @@ class Database extends BaseCosmos
 {
     public string $host;
     public string $private_key;
-
-    public string $headers;
-    public string $verb;
-
     public $rtype = ResourceType::DBS->value;
     public $token = Token::MASTER->value;
 
@@ -31,6 +27,7 @@ class Database extends BaseCosmos
         $verb = Verb::POST->value;
 
         $resourcelink = new ResourceLinkBuilder();
+        $resourcelink->setResourceTypeDB();
         $resourcelink = $resourcelink->build();
 
         $auth = $this->auth(
@@ -45,6 +42,7 @@ class Database extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+        $this->execute($this->host, $headers, $verb);
     }
 
     public function list()
@@ -52,6 +50,7 @@ class Database extends BaseCosmos
         $verb = Verb::GET->value;
 
         $resourcelink = new ResourceLinkBuilder();
+        $resourcelink->setResourceTypeDB();
         $resourcelink = $resourcelink->build();
 
         $auth = $this->auth(
@@ -66,6 +65,7 @@ class Database extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+        $this->execute($this->host, $headers, $verb);
     }
 
     public function get(string $dbid)
@@ -89,6 +89,7 @@ class Database extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+        $this->execute($this->host, $headers, $verb);
     }
 
     public function delete(string $dbid)
@@ -112,5 +113,8 @@ class Database extends BaseCosmos
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
+        $this->execute($this->host, $headers, $verb);
+
+        echo $auth;
     }
 }

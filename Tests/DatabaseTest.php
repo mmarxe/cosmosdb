@@ -54,7 +54,8 @@ final class DatabaseTest extends TestCase
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A=='
         );
-        $database->delete("VariantsContainer");
+        $response = $database->delete("VariantsContainer");
+        $this->assertNotEmpty($response);
     }
 
     public function testGetFunction()
@@ -63,7 +64,8 @@ final class DatabaseTest extends TestCase
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A=='
         );
-        $database->get("VariantsContainer");
+        $response = $database->get("VariantsContainer");
+        $this->assertNotEmpty($response);
     }
 
     public function testListFunction()
@@ -72,7 +74,8 @@ final class DatabaseTest extends TestCase
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A=='
         );
-        $database->list("VariantsContainer");
+        $response = $database->list();
+        $this->assertNotEmpty($response);
     }
 
     public function testCreateFunction()
@@ -81,6 +84,7 @@ final class DatabaseTest extends TestCase
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A=='
         );
-        $database->delete("VariantContainer");
+        $response = $database->create();
+        $this->assertNotEmpty($response);
     }
 }

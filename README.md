@@ -27,3 +27,51 @@ composer require cosmosdb/cosmosdb
 at the root of your project.
 
 ## Usage
+
+### Select Database
+
+```php
+
+$database = new Database(
+    'host',
+    'primary_key'
+);
+$response = $database->get("Variants");
+
+```
+
+### Delete Database
+
+```php
+
+$database = new Database(
+    'host',
+    'primary_key'
+);
+$response = $database->delete("Variants");
+
+```
+
+### List Databases
+
+```php
+
+$database = new Database(
+    'host',
+    'primary_key'
+);
+$response = $database->list();
+
+```
+
+### Create a new Database
+
+```php
+
+$database = new Database(
+    'host',
+    'primary_key'
+);
+$response = $database->create("Variants");
+
+```

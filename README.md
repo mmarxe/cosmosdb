@@ -10,17 +10,17 @@ https://learn.microsoft.com/en-us/rest/api/cosmos-db/
 
 Include cosmosdb/cosmosdb in your project, by adding it to your composer.json file.
 
-```
+```json
 {
-    "require": {
-        "cosmosdb/cosmosdb": "1.1.0"
-    }
+  "require": {
+    "cosmosdb/cosmosdb": "1.1.0"
+  }
 }
 ```
 
 or by running
 
-```
+```zsh
 composer require cosmosdb/cosmosdb
 ```
 

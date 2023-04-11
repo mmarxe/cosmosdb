@@ -36,7 +36,7 @@ $database = new Database(
     'host',
     'primary_key'
 );
-$response = $database->get("Variants");
+$response = $database->get("DBNAME");
 
 ```
 
@@ -48,7 +48,7 @@ $database = new Database(
     'host',
     'primary_key'
 );
-$response = $database->delete("Variants");
+$response = $database->delete("DBNAME");
 
 ```
 
@@ -72,6 +72,6 @@ $database = new Database(
     'host',
     'primary_key'
 );
-$response = $database->create("Variants");
+$response = $database->create("DBNAME");
 
 ```

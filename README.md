@@ -1,10 +1,8 @@
-# Azure CosmosDB
+# cosmosdb
 
-This is a wrapper around the api to make it simpler to utilize azure cosmosdb from your php services such as Wordpress, Symphony and Laravel.
+This is a wrapper around the rest api to make it simpler to utilize azure cosmosdb from your php services such as Wordpress, Symphony and Laravel.
 
-Wrapper for Azure Cosmos DB.
-
-https://learn.microsoft.com/en-us/rest/api/cosmos-db/
+For more information around the wrapper for Azure Cosmos DB. https://learn.microsoft.com/en-us/rest/api/cosmos-db/
 
 ## Installation
 

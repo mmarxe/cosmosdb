@@ -25,10 +25,14 @@ class ResourceLink
 
     public function __toString()
     {
-        try {
+        if ($this->dbid !== null && $this->contid == null && $this->docid == null) {
+            return (string) "{$this->rtypedb}/{$this->dbid}";
+        } else if ($this->dbid !== null && $this->contid !== null && $this->docid == null) {
+            return (string) "{$this->rtypedb}/{$this->dbid}/{$this->rtypecont}/{$this->contid}";
+        } else if ($this->dbid !== null && $this->contid !== null && $this->docid !== null) {
             return (string) "{$this->rtypedb}/{$this->dbid}/{$this->rtypecont}/{$this->contid}/{$this->docid}";
-        } catch (Exception $exception) {
-            return '';
+        } else {
+            return "";
         }
     }
 }

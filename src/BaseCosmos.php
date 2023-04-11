@@ -34,12 +34,13 @@ abstract class BaseCosmos
     abstract public function create();
 
 
-    public function execute($host, $headers, $verb)
+    public function execute($host, $headers, $verb, $date)
     {
         $execute = new GuzzleRequest(
             $host,
             $headers,
-            $verb
+            $verb,
+            $date
         );
         $execute->call();
     }

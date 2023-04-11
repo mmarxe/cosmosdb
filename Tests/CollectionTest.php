@@ -59,7 +59,7 @@ final class CollectionTest extends TestCase
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
             'Variants'
         );
-        $response = $collection->delete("VariantsContainer");
+        $response = $collection->delete("VariantContainer");
         $this->assertNotEmpty($response);
     }
 
@@ -70,7 +70,7 @@ final class CollectionTest extends TestCase
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
             'Variants'
         );
-        $response = $collection->get("VariantsContainer");
+        $response = $collection->get("VariantContainer");
         $this->assertNotEmpty($response);
     }
 

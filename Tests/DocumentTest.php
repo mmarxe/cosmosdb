@@ -17,14 +17,14 @@ final class DocumentTest extends TestCase
         $document = new Document(
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
-            'Variant',
-            'VariantsContainer'
+            'Variants',
+            'VariantContainer'
         );
 
         $this->assertSame('https://buysadb.documents.azure.com:443/', $document->host);
         $this->assertSame('lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==', $document->private_key);
-        $this->assertSame('Variant', $document->dbid);
-        $this->assertSame('VariantsContainer', $document->containerid);
+        $this->assertSame('Variants', $document->dbid);
+        $this->assertSame('VariantContainer', $document->containerid);
     }
 
     public function testAuthFunction()
@@ -32,8 +32,8 @@ final class DocumentTest extends TestCase
         $document = new Document(
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
-            'Variant',
-            'VariantsContainer'
+            'Variants',
+            'VariantContainer'
         );
 
         $resourcelink = new ResourceLinkBuilder();
@@ -62,8 +62,8 @@ final class DocumentTest extends TestCase
         $document = new Document(
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
-            'Variant',
-            'VariantsContainer'
+            'Variants',
+            'VariantContainer'
         );
         $response = $document->delete("VariantsContainer");
         $this->assertNotEmpty($response);
@@ -74,8 +74,8 @@ final class DocumentTest extends TestCase
         $document = new Document(
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
-            'Variant',
-            'VariantsContainer'
+            'Variants',
+            'VariantContainer'
         );
         $response = $document->get("VariantsContainer");
         $this->assertNotEmpty($response);
@@ -86,8 +86,8 @@ final class DocumentTest extends TestCase
         $document = new Document(
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
-            'Variant',
-            'VariantsContainer'
+            'Variants',
+            'VariantContainer'
         );
         $response = $document->list();
         $this->assertNotEmpty($response);
@@ -98,8 +98,8 @@ final class DocumentTest extends TestCase
         $document = new Document(
             'https://buysadb.documents.azure.com:443/',
             'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
-            'Variant',
-            'VariantsContainer'
+            'Variants',
+            'VariantContainer'
         );
         $response = $document->create();
         $this->assertNotEmpty($response);

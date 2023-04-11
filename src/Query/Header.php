@@ -25,19 +25,19 @@ class Header
     {
         $this->authorization = $builder->authorization;
         $this->contenttype = "application/query+json";
-        // $this->ifmatch = $builder->ifmatch;
-        // $this->ifnonematch = $builder->ifnonematch;
-        // $this->ifmodifiedmatch = $builder->ifmodifiedmatch;
-        // $this->useragent = $builder->useragent;
-        // $this->activityid = $builder->activityid;
-        // $this->consistencylevel = $builder->consistencylevel;
-        // $this->continuation = $builder->continuation;
-        // $this->date = $builder->date;
-        // $this->maxitemcount = $builder->maxitemcount;
-        // $this->partitionkey = $builder->partitionkey;
-        // $this->version = $builder->version;
-        // $this->im = $builder->im;
-        // $this->partitionkeyrangeid = $builder->partitionkeyrangeid;
-        // $this->allowtentativewrites = $builder->allowtentativewrites;
+        $this->ifmatch = $builder->ifmatch;
+        $this->ifnonematch = $builder->ifnonematch;
+        $this->ifmodifiedmatch = $builder->ifmodifiedmatch;
+        $this->useragent = $builder->useragent;
+        $this->activityid = $builder->activityid;
+        $this->consistencylevel = $builder->consistencylevel;
+        $this->continuation = $builder->continuation;
+        $this->date = $builder->date;
+        $this->maxitemcount = $builder->maxitemcount;
+        $this->partitionkey = $builder->partitionkey;
+        $this->version = $builder->version;
+        $this->im = $builder->im;
+        $this->partitionkeyrangeid = $builder->partitionkeyrangeid;
+        $this->allowtentativewrites = $builder->allowtentativewrites;
     }
 }

@@ -10,12 +10,14 @@ class GuzzleRequest
     public string $host;
     public Header $headers;
     public string $verb;
+    public string $date;
 
-    public function __construct(string $host, Header $headers, string $verb)
+    public function __construct(string $host, Header $headers, string $verb, string $date)
     {
         $this->host = $host;
         $this->headers = $headers;
         $this->verb = $verb;
+        $this->date = $date;
     }
 
     public function UTCDateTime()
@@ -28,8 +30,9 @@ class GuzzleRequest
     {
         $header_array = [];
         $header_array["authorization"] = $this->headers->authorization;
+        $header_array["Accept"] = $this->headers->contenttype;
         $header_array['x-ms-version'] = '2018-12-31';
-        $header_array['x-ms-date'] = strtolower($this->UTCDateTime());
+        $header_array['x-ms-date'] = $this->date;
         $client = new Client();
         $res = $client->request(
             $this->verb,
@@ -38,7 +41,6 @@ class GuzzleRequest
                 'headers' => $header_array
             ]
         );
-        echo ($header_array);
         return $res;
     }
 }

@@ -16,29 +16,29 @@ final class DatabaseTest extends TestCase
     {
         $database = new Database(
             'https://buysadb.documents.azure.com:443/',
-            'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A=='
+            'YcTdWtQEgIpJ4PhaM5OfK6F4lxeJMkKx70DZQ1kZfUxkJNUA00eXWrV78GcxMQfk1jRR4EyBPut7ACDbICyTbg=='
         );
 
         $this->assertSame('https://buysadb.documents.azure.com:443/', $database->host);
-        $this->assertSame('lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==', $database->private_key);
+        $this->assertSame('YcTdWtQEgIpJ4PhaM5OfK6F4lxeJMkKx70DZQ1kZfUxkJNUA00eXWrV78GcxMQfk1jRR4EyBPut7ACDbICyTbg==', $database->private_key);
     }
 
     public function testAuthFunction()
     {
         $database = new Database(
             'https://buysadb.documents.azure.com:443/',
-            'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A=='
+            'YcTdWtQEgIpJ4PhaM5OfK6F4lxeJMkKx70DZQ1kZfUxkJNUA00eXWrV78GcxMQfk1jRR4EyBPut7ACDbICyTbg=='
         );
 
         $resourcelink = new ResourceLinkBuilder();
         $resourcelink->setResourceTypeDB();
-        $resourcelink->setDatabase("Variant");
+        $resourcelink->setDatabase("Variants");
         $resourcelink = $resourcelink->build();
 
 
         $authsignature = $database->auth(
             'https://buysadb.documents.azure.com:443/',
-            'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A==',
+            'YcTdWtQEgIpJ4PhaM5OfK6F4lxeJMkKx70DZQ1kZfUxkJNUA00eXWrV78GcxMQfk1jRR4EyBPut7ACDbICyTbg==',
             Verb::GET->value,
             ResourceType::DBS->value,
             $resourcelink,
@@ -52,7 +52,7 @@ final class DatabaseTest extends TestCase
     {
         $database = new Database(
             'https://buysadb.documents.azure.com:443/',
-            'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A=='
+            'YcTdWtQEgIpJ4PhaM5OfK6F4lxeJMkKx70DZQ1kZfUxkJNUA00eXWrV78GcxMQfk1jRR4EyBPut7ACDbICyTbg=='
         );
         $response = $database->delete("VariantsContainer");
         $this->assertNotEmpty($response);
@@ -62,7 +62,7 @@ final class DatabaseTest extends TestCase
     {
         $database = new Database(
             'https://buysadb.documents.azure.com:443/',
-            'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A=='
+            'YcTdWtQEgIpJ4PhaM5OfK6F4lxeJMkKx70DZQ1kZfUxkJNUA00eXWrV78GcxMQfk1jRR4EyBPut7ACDbICyTbg=='
         );
         $response = $database->get("VariantsContainer");
         $this->assertNotEmpty($response);
@@ -72,7 +72,7 @@ final class DatabaseTest extends TestCase
     {
         $database = new Database(
             'https://buysadb.documents.azure.com:443/',
-            'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A=='
+            'YcTdWtQEgIpJ4PhaM5OfK6F4lxeJMkKx70DZQ1kZfUxkJNUA00eXWrV78GcxMQfk1jRR4EyBPut7ACDbICyTbg=='
         );
         $response = $database->list();
         $this->assertNotEmpty($response);
@@ -82,7 +82,7 @@ final class DatabaseTest extends TestCase
     {
         $database = new Database(
             'https://buysadb.documents.azure.com:443/',
-            'lwoRtHgTHwy6iH18roGLNQxwm3iZai0Nl9NPBNudNKpjIUZosmwDMduGMIxVQyWbUMx4OopZiKUmACDbuXO21A=='
+            'YcTdWtQEgIpJ4PhaM5OfK6F4lxeJMkKx70DZQ1kZfUxkJNUA00eXWrV78GcxMQfk1jRR4EyBPut7ACDbICyTbg=='
         );
         $response = $database->create();
         $this->assertNotEmpty($response);

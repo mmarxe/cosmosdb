@@ -35,7 +35,7 @@ class Collection extends BaseCosmos
         $resourcelink->setContainer($containerid);
         $resourcelink = $resourcelink->build();
 
-        $auth = $this->auth(
+        $auth_array = $this->auth(
             $this->host,
             $this->private_key,
             $verb,
@@ -44,10 +44,13 @@ class Collection extends BaseCosmos
             $this->token
         );
 
+        $auth = $auth_array["signature"];
+        $date = $auth_array["date"];
+
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
-        $this->execute($this->host, $headers, $verb);
+        $this->execute($this->host, $headers, $verb, $date);
     }
 
     public function create()
@@ -59,7 +62,7 @@ class Collection extends BaseCosmos
         $resourcelink->setDatabase($this->dbid);
         $resourcelink = $resourcelink->build();
 
-        $auth = $this->auth(
+        $auth_array = $this->auth(
             $this->host,
             $this->private_key,
             $verb,
@@ -68,10 +71,13 @@ class Collection extends BaseCosmos
             $this->token
         );
 
+        $auth = $auth_array["signature"];
+        $date = $auth_array["date"];
+
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
-        $this->execute($this->host, $headers, $verb);
+        $this->execute($this->host, $headers, $verb, $date);
     }
 
     public function list()
@@ -83,7 +89,7 @@ class Collection extends BaseCosmos
         $resourcelink->setDatabase($this->dbid);
         $resourcelink = $resourcelink->build();
 
-        $auth = $this->auth(
+        $auth_array = $this->auth(
             $this->host,
             $this->private_key,
             $verb,
@@ -92,10 +98,13 @@ class Collection extends BaseCosmos
             $this->token
         );
 
+        $auth = $auth_array["signature"];
+        $date = $auth_array["date"];
+
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
-        $this->execute($this->host, $headers, $verb);
+        $this->execute($this->host, $headers, $verb, $date);
     }
 
     public function delete(string $containerid)
@@ -109,7 +118,7 @@ class Collection extends BaseCosmos
         $resourcelink->setContainer($containerid);
         $resourcelink = $resourcelink->build();
 
-        $auth = $this->auth(
+        $auth_array = $this->auth(
             $this->host,
             $this->private_key,
             $verb,
@@ -118,9 +127,12 @@ class Collection extends BaseCosmos
             $this->token
         );
 
+        $auth = $auth_array["signature"];
+        $date = $auth_array["date"];
+
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
-        $this->execute($this->host, $headers, $verb);
+        $this->execute($this->host, $headers, $verb, $date);
     }
 }

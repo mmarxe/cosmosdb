@@ -38,7 +38,7 @@ class Document extends BaseCosmos
         $resourcelink->setContainer($this->containerid);
         $resourcelink = $resourcelink->build();
 
-        $auth = $this->auth(
+        $auth_array = $this->auth(
             $this->host,
             $this->private_key,
             $verb,
@@ -47,10 +47,13 @@ class Document extends BaseCosmos
             $this->token
         );
 
+        $auth = $auth_array["signature"];
+        $date = $auth_array["date"];
+
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites("true");
         $headers = $headers->build();
-        $this->execute($this->host, $headers, $verb);
+        $this->execute($this->host, $headers, $verb, $date);
     }
 
     public function list()
@@ -64,7 +67,7 @@ class Document extends BaseCosmos
         $resourcelink->setContainer($this->containerid);
         $resourcelink = $resourcelink->build();
 
-        $auth = $this->auth(
+        $auth_array = $this->auth(
             $this->host,
             $this->private_key,
             $verb,
@@ -73,10 +76,13 @@ class Document extends BaseCosmos
             $this->token
         );
 
+        $auth = $auth_array["signature"];
+        $date = $auth_array["date"];
+
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
-        $this->execute($this->host, $headers, $verb);
+        $this->execute($this->host, $headers, $verb, $date);
     }
 
     public function get(string $docid)
@@ -92,7 +98,7 @@ class Document extends BaseCosmos
         $resourcelink->setDocument($docid);
         $resourcelink = $resourcelink->build();
 
-        $auth = $this->auth(
+        $auth_array = $this->auth(
             $this->host,
             $this->private_key,
             $verb,
@@ -101,10 +107,13 @@ class Document extends BaseCosmos
             $this->token
         );
 
+        $auth = $auth_array["signature"];
+        $date = $auth_array["date"];
+
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites("true");
         $headers = $headers->build();
-        $this->execute($this->host, $headers, $verb);
+        $this->execute($this->host, $headers, $verb, $date);
     }
 
 
@@ -121,7 +130,7 @@ class Document extends BaseCosmos
         $resourcelink->setDocument($docid);
         $resourcelink = $resourcelink->build();
 
-        $auth = $this->auth(
+        $auth_array = $this->auth(
             $this->host,
             $this->private_key,
             $verb,
@@ -130,9 +139,12 @@ class Document extends BaseCosmos
             $this->token
         );
 
+        $auth = $auth_array["signature"];
+        $date = $auth_array["date"];
+
         $headers = new HeaderBuilder($auth, "JSON");
         $headers->setallowtentativewrites(true);
         $headers = $headers->build();
-        $this->execute($this->host, $headers, $verb);
+        $this->execute($this->host, $headers, $verb, $date);
     }
 }

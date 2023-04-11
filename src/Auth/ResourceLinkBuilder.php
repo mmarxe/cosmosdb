@@ -6,12 +6,12 @@ use Exception;
 
 class ResourceLinkBuilder
 {
-    public string $rtypedb;
-    public string $rtypecont;
-    public string $rtypedoc;
-    public string $dbid;
-    public string $contid;
-    public string $docid;
+    public ?string $rtypedb = null;
+    public ?string $rtypecont = null;
+    public ?string $rtypedoc = null;
+    public ?string $dbid = null;
+    public ?string $contid = null;
+    public ?string $docid = null;
 
     public function setResourceTypeDB()
     {

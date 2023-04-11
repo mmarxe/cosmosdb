@@ -26,7 +26,6 @@ class Auth
     public function auth()
     {
         $signature = $this->signature();
-        echo $this->resourcelink;
         return "type=$this->typeoftoken&ver=$this->tokenversion&sig=$signature";
     }
 

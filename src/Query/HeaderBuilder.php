@@ -6,20 +6,20 @@ class HeaderBuilder
 {
     public string $authorization;
     public string $contenttype;
-    public string $ifmatch;
-    public string $ifnonematch;
-    public string $ifmodifiedmatch;
-    public string $useragent;
-    public string $activityid;
-    public string $consistencylevel;
-    public string $continuation;
-    public string $date;
-    public string $maxitemcount;
-    public string $partitionkey;
-    public string $version;
-    public string $im;
-    public string $partitionkeyrangeid;
-    public string $allowtentativewrites;
+    public ?string $ifmatch = null;
+    public ?string $ifnonematch = null;
+    public ?string $ifmodifiedmatch = null;
+    public ?string $useragent = null;
+    public ?string $activityid = null;
+    public ?string $consistencylevel = null;
+    public ?string $continuation = null;
+    public ?string $date = null;
+    public ?string $maxitemcount = null;
+    public ?string $partitionkey = null;
+    public ?string $version = null;
+    public ?string $im = null;
+    public ?string $partitionkeyrangeid = null;
+    public ?string $allowtentativewrites = null;
 
     public function __construct($authorization, $contenttype)
     {

@@ -27,6 +27,7 @@ class GuzzleRequest
     public function call()
     {
         $header_array = [];
+        $header_array["authorization"] = $this->headers->authorization;
         $header_array['x-ms-version'] = '2018-12-31';
         $header_array['x-ms-date'] = strtolower($this->UTCDateTime());
         $client = new Client();
